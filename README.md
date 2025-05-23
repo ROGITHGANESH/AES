@@ -1,4 +1,4 @@
-# EX-4-ADVANCED-ENCRYPTION-STANDARD-DES-ALGORITHM
+# EX-8-ADVANCED-ENCRYPTION-STANDARD-DES-ALGORITHM
 # Aim:
 To use Advanced Encryption Standard (AES) Algorithm for a practical application like URL Encryption.
 
@@ -12,29 +12,23 @@ AES operates on a 4 × 4 column-major order array of bytes, termed the state
 #include <stdio.h>
 #include <string.h>
 
-void xor_encrypt_decrypt(char *input, char *key) {
-    int input_len = strlen(input);
-    int key_len = strlen(key);
-    for (int i = 0; i < input_len; i++) {
-        input[i] = input[i] ^ key[i % key_len];
-    }
+void xorCrypt(char *in, char *key) {
+  for (int i = 0; in[i]; i++) in[i] ^= key[i % strlen(key)];
 }
 
 int main() {
-    char url[] = "WELCOME";
-    char key[] = "secretkey";
-    
-    printf("Original text: %s\n", url);
-    xor_encrypt_decrypt(url, key);
-    printf("Encrypted text: %s\n", url);
-    xor_encrypt_decrypt(url, key);
-    printf("Decrypted text: %s\n", url);
-
-    return 0;
+  char msg[] = "VARSHA RAJ", key[] = "secretkey";
+  printf("Original: %s\n", msg);
+  xorCrypt(msg, key);
+  printf("Encrypted: %s\n", msg);
+  xorCrypt(msg, key);
+  printf("Decrypted: %s\n", msg);
+  return 0;
 }
 ```
 # OUTPUT:
-![Screenshot 2025-04-25 134727](https://github.com/user-attachments/assets/dd6db3af-3199-46dd-822b-224b3e908a12)
+![image](https://github.com/user-attachments/assets/9b9b7e79-8c83-4c70-9526-dfb4280fd3f4)
+
 
 # RESULT:
 Thus code for Advanced Encryption Standard (AES) Algorithm for a practical application like URL Encryption is executed successfully.
